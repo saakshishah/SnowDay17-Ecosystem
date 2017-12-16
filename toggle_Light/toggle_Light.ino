@@ -3,7 +3,6 @@ int buttonpin = 8;
 boolean on = false;
 int buttonstate = 0;
 boolean debounce = false;
-int timelen =0;
 
 void setup() {
   // put your setup code here, to run once:
@@ -20,9 +19,11 @@ void loop() {
     debounce = true;
     if (on == true){
       on = false;
+      Serial.write(0);
     }
     else{
       on = true;
+      Serial.write(1);
     }
   }
   else if (buttonstate == 0){
