@@ -1,6 +1,4 @@
-from flask import Flask
-
-
+from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
@@ -10,7 +8,11 @@ def hello_world():
 
 @app.route('/test')
 def whatever():
-    return 'ssadsdvdsv'
+    return render_template('index.html', input1 = buttonsPressed)
 
-if __name__ == '__main__':
-    app.run(debug = True, port=50000)
+@app.route('/add',methods=['GET'])
+def addButton():
+    return jsonify(request.args.to_dict())
+
+    
+buttonsPressed = 11
