@@ -47,20 +47,20 @@ public class EcoSystemGUI extends JFrame{
 		emissionNum = new JTextField("0");
 
 		//switch pic
-		switchOn = new ImagePicture(new ImageIcon("switchOn.png"));
-		switchOff = new ImagePicture(new ImageIcon("switchOff.png"));
+		switchOn = new ImagePicture(new ImageIcon("bulbOn.png"));
+		switchOff = new ImagePicture(new ImageIcon("bulbOff.png"));
 		//clean pics
 		clean = new ImagePicture(new ImageIcon("Clean.png")); 
 		//clean1
-		clean1 = new ImagePicture(new ImageIcon("Clean1.jpg"));
+		clean1 = new ImagePicture(new ImageIcon("Clean1.png"));
 		//dirty
-		dirty = new ImagePicture(new ImageIcon("Dirty.jpg"));
+		dirty = new ImagePicture(new ImageIcon("Dirty.png"));
 		//dirty1
-		dirty1 = new ImagePicture(new ImageIcon("Dirty1.jpg"));
+		dirty1 = new ImagePicture(new ImageIcon("Dirty1.png"));
 		//dirty1
-		black = new ImagePicture(new ImageIcon("Black.jpg"));
+		black = new ImagePicture(new ImageIcon("Black.png"));
 		// background picture
-		ipBackground = new ImagePicture(new ImageIcon("bgPic.png"));
+		ipBackground = new ImagePicture(new ImageIcon("bgPic1.jpg"));
 
 		//add text field
 		emissionNum.setBounds(530,160,240,72);
@@ -78,27 +78,27 @@ public class EcoSystemGUI extends JFrame{
 		switchOff.setVisible(true);
 
 		//clean
-		clean.setBounds(530,250,256,256);
+		clean.setBounds(530,270,256,256);
 		add(clean);
 		clean.setVisible(true);
 
 		//clean
-		clean1.setBounds(530,250,256,256);
+		clean1.setBounds(530,270,256,256);
 		add(clean1);
 		clean1.setVisible(false);
 
 		//clean
-		dirty.setBounds(530,250,256,256);
+		dirty.setBounds(530,270,256,256);
 		add(dirty);
 		dirty.setVisible(false);
 
 		//clean
-		dirty1.setBounds(530,250,256,256);
+		dirty1.setBounds(530,270,256,256);
 		add(dirty1);
 		dirty1.setVisible(false);
 
 		//clean
-		black.setBounds(530,250,256,256);
+		black.setBounds(530,270,256,256);
 		add(black);
 		black.setVisible(false);
 
@@ -119,29 +119,32 @@ public class EcoSystemGUI extends JFrame{
 		this.timer = new Timer();
 		this.timer.scheduleAtFixedRate(new TimerTask(){
 			public void run() {
-				if(secondsPassed>=0 && secondsPassed <24){	
+				if(secondsPassed>=0 && secondsPassed <5){	
 					clean.setVisible(true);
 				}
-				else if (secondsPassed>=24 && secondsPassed <48){	
+				else if (secondsPassed>=5 && secondsPassed <10){	
 					clean.setVisible(false);
 					clean1.setVisible(true);
 				}
-				else if (secondsPassed>=48 && secondsPassed <72){	
+				else if (secondsPassed>=10 && secondsPassed <15){	
 					clean.setVisible(false);
 					clean1.setVisible(false);
 					dirty.setVisible(true);
 
-				}else if (secondsPassed>=72 && secondsPassed <96){	
+				}else if (secondsPassed>=15 && secondsPassed <20){	
 					clean.setVisible(false);
 					clean1.setVisible(false);
 					dirty.setVisible(false);
 					dirty1.setVisible(true);
-				}else if (secondsPassed>=96){	
+				}else if (secondsPassed>=24 && secondsPassed <30){	
 					clean.setVisible(false);
 					clean1.setVisible(false);
 					dirty.setVisible(false);
 					dirty1.setVisible(false);
 					black.setVisible(true);
+				}
+				else if (secondsPassed >=30){
+					JOptionPane.showMessageDialog(null, "YOU KILLED THE ECO SYSTEM");
 				}
 				secondsPassed++;
 				System.out.println("Seconds Passed: " + secondsPassed);
